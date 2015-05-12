@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="EntitiesModel" namespace="BLWTraining.Models" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="EntitiesModel" backend="mssql" default-schema="dbo" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="BLWTraining.Models" default="true">
+      <orm:class name="IdentityUser" use-default-mapping="true" uniqueId="f64f6e87-7ef2-4dba-ab78-3e560b712b8d">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="a5ee3283-8a1a-4923-887f-4e7cd4a3380b" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_firstName" property="FirstName" uniqueId="0a282d96-151f-4bc5-9165-cb31e6ea540c" type="System.String">
+          <orm:column name="FirstName" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_lastName" property="LastName" uniqueId="31930b0d-c902-4584-aceb-8fb4579a2455" type="System.String">
+          <orm:column name="LastName" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_dateOfBirth" property="DateOfBirth" uniqueId="a6ea2fd8-40df-4321-81d4-5bfe9541808f" type="System.DateTime">
+          <orm:column name="DateOfBirth" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_zone" property="Zone" uniqueId="e18a3269-4e5f-4f8d-b87e-4965a225890a" type="System.Int32">
+          <orm:column name="Zone" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_emailAddress" property="EmailAddress" uniqueId="194df45d-2436-49c4-a2d3-9de943a91883" type="System.String">
+          <orm:column name="EmailAddress" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_phoneNumber" property="PhoneNumber" uniqueId="48ed5f3d-3704-44c6-b10e-61e2efec0562" type="System.String">
+          <orm:column name="PhoneNumber" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_emailConfirmed" property="EmailConfirmed" uniqueId="bb199f59-571b-473f-81af-1d8729dbc6c2" type="System.Boolean">
+          <orm:column name="EmailConfirmed" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        </orm:field>
+        <orm:field name="_phoneNumberConfirmed" property="PhoneNumberConfirmed" uniqueId="326a00bb-7c88-474e-b546-5f212e24939f" type="System.Boolean">
+          <orm:column name="PhoneNumberConfirmed" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        </orm:field>
+        <orm:field name="_passwordHash" property="PasswordHash" uniqueId="609b18bd-3f92-4e04-a0ae-eb6436821bfa" type="System.String">
+          <orm:column name="PasswordHash" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_securityStamp" property="SecurityStamp" uniqueId="04890d4b-b48f-4a51-b6dd-834202473a0b" type="System.String">
+          <orm:column name="SecurityStamp" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_twoFactorEnabled" property="TwoFactorEnabled" uniqueId="4b10fee4-e6a0-4e19-9fa6-6d15a76dd8a6" type="System.Boolean">
+          <orm:column name="TwoFactorEnabled" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        </orm:field>
+        <orm:field name="_lockOutEndDateUtc" property="LockOutEndDateUtc" uniqueId="1b0985e7-c8ab-4f48-af58-1372b3cc26c9" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="LockOutEndDateUtc" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_lockOutEnabled" property="LockOutEnabled" uniqueId="b3c950f0-41e1-4454-821f-434a9450ca5d" type="System.Boolean">
+          <orm:column name="LockOutEnabled" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        </orm:field>
+        <orm:field name="_accessFailedCount" property="AccessFailedCount" uniqueId="f79c86ec-dc89-4560-9059-3ba526342c3c" type="System.Int32">
+          <orm:column name="AccessFailedCount" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_providerId" property="ProviderId" uniqueId="ff5f77dd-f036-4b2d-b9c8-2c737913a1cd" type="System.String">
+          <orm:column name="ProviderId" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_lastLogInDate" property="LastLogInDate" uniqueId="709fb7e1-4c18-45bf-bc0c-96d57ff362ee" type="System.DateTime">
+          <orm:column name="LastLogInDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_chapter" property="Chapter" uniqueId="81e291ae-5275-4398-8cd2-d0328d55d489" type="System.String">
+          <orm:column name="Chapter" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_zone1" property="Zone1" behavior="readwrite" uniqueId="c53f5a71-f248-4b0a-ab2a-de805a85e395" type="BLWTraining.Models.Zone">
+          <orm:reference uniqueId="4cf6b569-8550-44c4-bcbc-cddc36533848" association-name="IdentityUserHasZone">
+            <orm:sharedfield name="_zone" target-class="BLWTraining.Models.Zone" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_identityUserInRoles" property="IdentityUserInRoles" behavior="readwrite" uniqueId="a4bb82d8-f387-461c-8311-51b64b53f539" type="BLWTraining.Models.IdentityUserInRole" dependent="true">
+          <orm:collection element-class="BLWTraining.Models.IdentityUserInRole" inverse-field="_identityUser" managed="true" order-by="" uniqueId="a9ab2f01-7c74-4f3d-8b14-2187eabaef1b" />
+        </orm:field>
+        <orm:field name="_identityUserClaims" property="IdentityUserClaims" behavior="readwrite" uniqueId="c85cbe8e-9d9a-4707-822c-9c86ef8bcff4" type="BLWTraining.Models.IdentityUserClaim">
+          <orm:collection element-class="BLWTraining.Models.IdentityUserClaim" inverse-field="_identityUser" order-by="" uniqueId="666efc4a-b80e-46e9-9f69-3e2bec4f6d3a" />
+        </orm:field>
+        <orm:field name="_identityUserLogins" property="IdentityUserLogins" behavior="readwrite" uniqueId="0d83c14a-7e7d-40fe-86a1-5343a8890ca8" type="BLWTraining.Models.IdentityUserLogin">
+          <orm:collection element-class="BLWTraining.Models.IdentityUserLogin" inverse-field="_identityUser" order-by="" uniqueId="60a7fdf9-1be1-4e7f-9d9e-0e7e043355da" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="IdentityUserClaim" use-default-mapping="true" uniqueId="e9f33891-24fc-4792-984b-6db7ed67fd84">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="6c6b3cda-c5cf-42e9-a174-bf570de383aa" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_userId" property="UserId" uniqueId="0121894e-c4d2-41d9-845c-52371b771cf9" type="System.Int32">
+          <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_claimType" property="ClaimType" uniqueId="e4f9f693-cb26-4a69-a68a-a696138b1e39" type="System.String">
+          <orm:column name="ClaimType" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_claimValue" property="ClaimValue" uniqueId="cde2c376-a8a5-4de8-9372-062c5a6b628f" type="System.String">
+          <orm:column name="ClaimValue" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_identityUser" property="IdentityUser" behavior="readwrite" uniqueId="0ccb03a7-63eb-4cd2-9c36-fbbd125e885b" type="BLWTraining.Models.IdentityUser">
+          <orm:reference uniqueId="666efc4a-b80e-46e9-9f69-3e2bec4f6d3a" association-name="IdentityUserClaimHasIdentityUser">
+            <orm:sharedfield name="_userId" target-class="BLWTraining.Models.IdentityUser" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+      </orm:class>
+      <orm:class name="IdentityUserLogin" uniqueId="1f251aab-dca6-4ffa-89c7-44b9dfb6dd69">
+        <orm:table name="IdentityUserLogin" />
+        <orm:identity />
+        <orm:field name="_providerKey" property="ProviderKey" uniqueId="2637732d-5f39-40ad-a0ae-2a4607ebfce7" type="System.String">
+          <orm:column name="ProviderKey" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_loginProvider" property="LoginProvider" uniqueId="f8532c8e-003b-4941-9154-e5e6799793f4" type="System.String">
+          <orm:column name="LoginProvider" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_userId" property="UserId" uniqueId="c4416c4f-548d-4f3e-8a4a-b7c21bbea54a" type="System.Int32">
+          <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_identityUser" property="IdentityUser" behavior="readwrite" uniqueId="e9299d5c-3966-4002-97d2-d103077e64c5" type="BLWTraining.Models.IdentityUser">
+          <orm:reference uniqueId="60a7fdf9-1be1-4e7f-9d9e-0e7e043355da" association-name="IdentityUserLoginHasIdentityUser">
+            <orm:sharedfield name="_userId" target-class="BLWTraining.Models.IdentityUser" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+      </orm:class>
+      <orm:class name="IdentityRole" use-default-mapping="true" uniqueId="f303a611-f8db-413f-b5c8-cdb208927eb2">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="a5909e12-978c-425a-a30a-9f60c1a8df39" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_name" property="Name" uniqueId="b35b3e4b-015c-4797-9b83-7871698a6042" type="System.String">
+          <orm:column name="nme" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_identityUserInRoles" property="IdentityUserInRoles" behavior="readwrite" uniqueId="01b6aff9-23a8-43d4-9484-9fe20b7874af" type="BLWTraining.Models.IdentityUserInRole" dependent="true">
+          <orm:collection element-class="BLWTraining.Models.IdentityUserInRole" inverse-field="_identityRole" managed="true" order-by="" uniqueId="4aa71ba9-4d8c-4ef8-8f28-624cf5278f6e" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Zone" update-schema="true" use-default-mapping="true" uniqueId="7217dc93-03e6-4daf-bcfc-5d54f9910b99">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="ea13aa32-9256-4bb5-b815-a4c3ea80fd5d" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_name" property="Name" uniqueId="11b4f1c2-b9a6-4271-8985-f1394c1bdbdc" type="System.String">
+          <orm:column name="nme" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_identityUsers" property="IdentityUsers" behavior="readwrite" uniqueId="64080e4d-6796-490a-b2a0-9254e1981c64" type="BLWTraining.Models.IdentityUser">
+          <orm:collection element-class="BLWTraining.Models.IdentityUser" inverse-field="_zone1" order-by="" uniqueId="4cf6b569-8550-44c4-bcbc-cddc36533848" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="IdentityUserInRole" use-default-mapping="true" uniqueId="26885549-fe8d-4abc-a795-2905da777398">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="2a61dd93-2f29-4984-93e1-c22bda9f161f" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_userId" property="UserId" uniqueId="9a1d95bb-0623-4968-b5f6-e746cb36c80f" type="System.Int32">
+          <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_roleId" property="RoleId" uniqueId="2419d3d6-7040-4b3f-bc37-2587e4cc887a" type="System.Int32">
+          <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_identityRole" property="IdentityRole" behavior="readwrite" uniqueId="def70df0-e1c1-4ad1-b6ed-8bf8a3359200" type="BLWTraining.Models.IdentityRole">
+          <orm:reference uniqueId="4aa71ba9-4d8c-4ef8-8f28-624cf5278f6e" association-name="IdentityUserInRoleHasIdentityRole">
+            <orm:sharedfield name="_roleId" target-class="BLWTraining.Models.IdentityRole" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_identityUser" property="IdentityUser" behavior="readwrite" uniqueId="bc20257a-4b3e-406f-808f-121974b2cf25" type="BLWTraining.Models.IdentityUser">
+          <orm:reference uniqueId="a9ab2f01-7c74-4f3d-8b14-2187eabaef1b" association-name="IdentityUserInRoleHasIdentityUser">
+            <orm:sharedfield name="_userId" target-class="BLWTraining.Models.IdentityUser" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+      </orm:class>
+      <orm:class name="TraiiningSessions" use-default-mapping="true" uniqueId="8748d0bf-784c-4980-aa56-f67628038f83">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="f97e6353-846d-466f-b410-8e4e3df8a292" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_name" property="Name" uniqueId="7143db30-b505-43df-8973-f4e200652932" type="System.String">
+          <orm:column name="nme" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_startDate" property="StartDate" uniqueId="7ee5137e-b22d-43bb-886b-a868e4dc69da" type="System.DateTime">
+          <orm:column name="StartDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_endDate" property="EndDate" uniqueId="516638a3-12e2-41c5-97d5-5156af44f878" type="System.DateTime">
+          <orm:column name="EndDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_dateCreated" property="DateCreated" uniqueId="a1a8dd32-70a2-4de0-a449-2d1aa390193e" type="System.DateTime">
+          <orm:column name="DateCreated" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_daysAfterEndBeforeArchiving" property="DaysAfterEndBeforeArchiving" uniqueId="d379c520-f17d-46e5-a7ab-f8cd464f9808" type="System.Int32">
+          <orm:column name="DaysAfterEndBeforeArchiving" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_description" property="Description" uniqueId="ecab3e5f-f5c9-404b-9242-804b1db06961" type="System.String">
+          <orm:column name="Description" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_maximumNumberOfParticipants" property="MaximumNumberOfParticipants" uniqueId="ce9cd0b5-ac18-48b0-a5f8-06586bf11e7c" type="System.Int32">
+          <orm:column name="MaximumNumberOfParticipants" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_trainingSessionFiles" property="TrainingSessionFiles" behavior="readwrite" uniqueId="9f6766b0-0535-49c8-aac0-4c0ac80d2b75" type="BLWTraining.Models.TrainingSessionFiles">
+          <orm:collection element-class="BLWTraining.Models.TrainingSessionFiles" inverse-field="_traiiningSessions" order-by="" uniqueId="e968f4be-9ba2-49bf-b262-25e8ad9dbece" />
+        </orm:field>
+        <orm:field name="_traningSessionSubscriptions" property="TraningSessionSubscriptions" behavior="readwrite" uniqueId="73368bca-784a-42d2-8db3-66b2f15faa01" type="BLWTraining.Models.TraningSessionSubscriptions">
+          <orm:collection element-class="BLWTraining.Models.TraningSessionSubscriptions" inverse-field="_traiiningSessions" order-by="" uniqueId="a39619e9-bd8b-43e1-8a1b-9d4390f8b41b" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="TrainingSessionFiles" use-default-mapping="true" uniqueId="f0a2bae3-2677-4268-a87b-60c17fee4d38">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="4504ae4e-142a-41ba-8d4d-ee13851ad929" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_trainingSessionId" property="TrainingSessionId" uniqueId="c229f67e-9f04-42fd-8306-a45748e96271" type="System.Int32">
+          <orm:column name="TrainingSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_fileName" property="FileName" uniqueId="cc385dc4-6ad5-4efd-8fc8-886027cef490" type="System.String">
+          <orm:column name="flename" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_filePath" property="FilePath" uniqueId="79cfa604-2c62-49af-abbc-af5aba294845" type="System.String">
+          <orm:column name="FilePath" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_fileType" property="FileType" uniqueId="daef6282-e35e-405c-8662-0703c93e61b7" type="System.String">
+          <orm:column name="FileType" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_fileSize" property="FileSize" uniqueId="4ddacc9c-7e06-4526-ba25-3cc16d71ca98" type="System.Int64">
+          <orm:column name="FileSize" sql-type="bigint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.BigIntConverter" ado-type="Int64" />
+        </orm:field>
+        <orm:field name="_traiiningSessions" property="TraiiningSessions" behavior="readwrite" uniqueId="be76abc6-6456-4746-b88d-fd1a35f61930" type="BLWTraining.Models.TraiiningSessions">
+          <orm:reference uniqueId="e968f4be-9ba2-49bf-b262-25e8ad9dbece" association-name="TrainingSessionFilesHasTraiiningSessions">
+            <orm:sharedfield name="_trainingSessionId" target-class="BLWTraining.Models.TraiiningSessions" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+      </orm:class>
+      <orm:class name="TraningSessionSubscriptions" use-default-mapping="true" uniqueId="74a03458-6f10-43ed-8571-90d8da5eb8d9">
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="2afc32f3-0b91-41fb-9b65-293bc279f6bd" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_userId" property="UserId" uniqueId="20f18977-3022-454c-a851-edb983388bd0" type="System.Int32">
+          <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_traininSessionId" property="TraininSessionId" uniqueId="641e8f01-cebd-46f3-b120-227640754ec9" type="System.Int32">
+          <orm:column name="TraininSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_startDate" property="StartDate" uniqueId="83ee11f3-2eab-46c8-bbcc-4f1b0c24ccf5" type="System.DateTime">
+          <orm:column name="StartDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_expiryDate" property="ExpiryDate" uniqueId="d2b9bbc5-23b0-42af-ac48-53f5c99571d5" type="System.DateTime">
+          <orm:column name="ExpiryDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_traiiningSessions" property="TraiiningSessions" behavior="readwrite" uniqueId="fe3d1377-32eb-46d5-a08e-24419a61bb61" type="BLWTraining.Models.TraiiningSessions">
+          <orm:reference uniqueId="a39619e9-bd8b-43e1-8a1b-9d4390f8b41b" association-name="TraningSessionSubscriptionsHasTraiiningSessions">
+            <orm:sharedfield name="_traininSessionId" target-class="BLWTraining.Models.TraiiningSessions" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="IdentityUserLogin">
+        <orm:column name="ProviderKey" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="LoginProvider" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:source-strategy>Property</orm:source-strategy>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>BlwTraningConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>Data Source=PETER;Initial Catalog=BlwTraning;Integrated Security=True</AppConfigConnectionString>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+      <NavigationPropertyRules />
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <ImplementINotifyPropertyChanging>true</ImplementINotifyPropertyChanging>
+      <ImplementINotifyPropertyChanged>true</ImplementINotifyPropertyChanged>
+      <GenerateDataAnnotationAttributes>true</GenerateDataAnnotationAttributes>
+      <ImplementISerializable>true</ImplementISerializable>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings>
+      <ExecuteScript>true</ExecuteScript>
+      <DeploymentProject>BLWTraining.Models</DeploymentProject>
+    </SchemaUpdateSettings>
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MsSql</Backend>
+        <ProviderName>System.Data.SqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="f64f6e87-7ef2-4dba-ab78-3e560b712b8d" name="IdentityUser" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="a5ee3283-8a1a-4923-887f-4e7cd4a3380b" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="0a282d96-151f-4bc5-9165-cb31e6ea540c" name="FirstName" label="FirstName : String" fieldName="_firstName" />
+      <Property Id="31930b0d-c902-4584-aceb-8fb4579a2455" name="LastName" label="LastName : String" fieldName="_lastName" />
+      <Property Id="a6ea2fd8-40df-4321-81d4-5bfe9541808f" name="DateOfBirth" type="DateTime" label="DateOfBirth : DateTime" fieldName="_dateOfBirth" />
+      <Property Id="e18a3269-4e5f-4f8d-b87e-4965a225890a" name="Zone" type="Int32" label="Zone : Int32" fieldName="_zone" />
+      <Property Id="194df45d-2436-49c4-a2d3-9de943a91883" name="EmailAddress" label="EmailAddress : String" fieldName="_emailAddress" />
+      <Property Id="48ed5f3d-3704-44c6-b10e-61e2efec0562" name="PhoneNumber" label="PhoneNumber : String" fieldName="_phoneNumber" />
+      <Property Id="bb199f59-571b-473f-81af-1d8729dbc6c2" name="EmailConfirmed" type="Boolean" label="EmailConfirmed : Boolean" fieldName="_emailConfirmed" />
+      <Property Id="326a00bb-7c88-474e-b546-5f212e24939f" name="PhoneNumberConfirmed" type="Boolean" label="PhoneNumberConfirmed : Boolean" fieldName="_phoneNumberConfirmed" />
+      <Property Id="609b18bd-3f92-4e04-a0ae-eb6436821bfa" name="PasswordHash" label="PasswordHash : String" fieldName="_passwordHash" />
+      <Property Id="04890d4b-b48f-4a51-b6dd-834202473a0b" name="SecurityStamp" label="SecurityStamp : String" fieldName="_securityStamp" />
+      <Property Id="4b10fee4-e6a0-4e19-9fa6-6d15a76dd8a6" name="TwoFactorEnabled" type="Boolean" label="TwoFactorEnabled : Boolean" fieldName="_twoFactorEnabled" />
+      <Property Id="1b0985e7-c8ab-4f48-af58-1372b3cc26c9" name="LockOutEndDateUtc" type="DateTime" label="LockOutEndDateUtc : DateTime" nullable="true" fieldName="_lockOutEndDateUtc" />
+      <Property Id="b3c950f0-41e1-4454-821f-434a9450ca5d" name="LockOutEnabled" type="Boolean" label="LockOutEnabled : Boolean" fieldName="_lockOutEnabled" />
+      <Property Id="f79c86ec-dc89-4560-9059-3ba526342c3c" name="AccessFailedCount" type="Int32" label="AccessFailedCount : Int32" fieldName="_accessFailedCount" />
+      <Property Id="ff5f77dd-f036-4b2d-b9c8-2c737913a1cd" name="ProviderId" label="ProviderId : String" fieldName="_providerId" />
+      <Property Id="709fb7e1-4c18-45bf-bc0c-96d57ff362ee" name="LastLogInDate" type="DateTime" label="LastLogInDate : DateTime" fieldName="_lastLogInDate" />
+      <Property Id="81e291ae-5275-4398-8cd2-d0328d55d489" name="Chapter" label="Chapter : String" fieldName="_chapter" />
+      <AssociationTargets>
+        <Association Id="4cf6b569-8550-44c4-bcbc-cddc36533848" SourceMultiplicity="ZeroOne" name="IdentityUserHasZone">
+          <DomainClassMoniker name="/EntitiesModel/Zone" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="12c7fee0-fa9d-4267-9162-d44975d71b51">
+              <NavigationalPropertyMoniker name="/EntitiesModel/Zone/IdentityUsers" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="88e08f22-c52c-4bb9-aca7-a8ff7fe72395">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUser/Zone1" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="3160e79a-7ef1-4d7d-9488-5bcf50fd8096">
+          <NavigationalProperty Id="c53f5a71-f248-4b0a-ab2a-de805a85e395" name="Zone1" type="Zone" label="Zone1 : Zone" nullable="true" kind="Persistent" fieldName="_zone1" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="767db63e-95e1-41bd-8640-58d3579f2c54">
+          <NavigationalProperty Id="a4bb82d8-f387-461c-8311-51b64b53f539" name="IdentityUserInRoles" type="IList&lt;IdentityUserInRole&gt;" label="IdentityUserInRoles : IList&lt;IdentityUserInRole&gt;" nullable="true" kind="Persistent" fieldName="_identityUserInRoles" isDependent="true" isManaged="true" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="5f51b6b8-7436-4de6-aacf-1e4c426c8c02">
+          <NavigationalProperty Id="c85cbe8e-9d9a-4707-822c-9c86ef8bcff4" name="IdentityUserClaims" type="IList&lt;IdentityUserClaim&gt;" label="IdentityUserClaims : IList&lt;IdentityUserClaim&gt;" nullable="true" kind="Persistent" fieldName="_identityUserClaims" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="9d79a6bb-a27f-46e0-95ef-6c73a4ce81dc">
+          <NavigationalProperty Id="0d83c14a-7e7d-40fe-86a1-5343a8890ca8" name="IdentityUserLogins" type="IList&lt;IdentityUserLogin&gt;" label="IdentityUserLogins : IList&lt;IdentityUserLogin&gt;" nullable="true" kind="Persistent" fieldName="_identityUserLogins" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="e9f33891-24fc-4792-984b-6db7ed67fd84" name="IdentityUserClaim" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="6c6b3cda-c5cf-42e9-a174-bf570de383aa" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="0121894e-c4d2-41d9-845c-52371b771cf9" name="UserId" type="Int32" label="UserId : Int32" fieldName="_userId" />
+      <Property Id="e4f9f693-cb26-4a69-a68a-a696138b1e39" name="ClaimType" label="ClaimType : String" fieldName="_claimType" />
+      <Property Id="cde2c376-a8a5-4de8-9372-062c5a6b628f" name="ClaimValue" label="ClaimValue : String" fieldName="_claimValue" />
+      <AssociationTargets>
+        <Association Id="666efc4a-b80e-46e9-9f69-3e2bec4f6d3a" SourceMultiplicity="ZeroOne" name="IdentityUserClaimHasIdentityUser">
+          <DomainClassMoniker name="/EntitiesModel/IdentityUser" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="6ec7d4bd-557d-4409-9449-2421c7fd4320">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUser/IdentityUserClaims" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="18c646b7-be1e-493a-a593-01f711b69e68">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUserClaim/IdentityUser" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="991d1973-646a-4f72-9126-2bc4c18d4005">
+          <NavigationalProperty Id="0ccb03a7-63eb-4cd2-9c36-fbbd125e885b" name="IdentityUser" type="IdentityUser" label="IdentityUser : IdentityUser" nullable="true" kind="Persistent" fieldName="_identityUser" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="1f251aab-dca6-4ffa-89c7-44b9dfb6dd69" name="IdentityUserLogin" namespace="BLWTraining.Models" showPropertiesCompartment="true" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="2637732d-5f39-40ad-a0ae-2a4607ebfce7" name="ProviderKey" label="ProviderKey : String" fieldName="_providerKey" />
+      <Property Id="f8532c8e-003b-4941-9154-e5e6799793f4" name="LoginProvider" label="LoginProvider : String" fieldName="_loginProvider" />
+      <Property Id="c4416c4f-548d-4f3e-8a4a-b7c21bbea54a" name="UserId" type="Int32" label="UserId : Int32" fieldName="_userId" />
+      <AssociationTargets>
+        <Association Id="60a7fdf9-1be1-4e7f-9d9e-0e7e043355da" SourceMultiplicity="ZeroOne" name="IdentityUserLoginHasIdentityUser">
+          <DomainClassMoniker name="/EntitiesModel/IdentityUser" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="0f9fedf0-69e3-4649-a3ff-5d84f1e5f1d8">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUser/IdentityUserLogins" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="8deb4289-6593-498b-aa45-c4bb790f8f13">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUserLogin/IdentityUser" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="b91d91e3-580c-48fb-9133-6c6984a3972d">
+          <NavigationalProperty Id="e9299d5c-3966-4002-97d2-d103077e64c5" name="IdentityUser" type="IdentityUser" label="IdentityUser : IdentityUser" nullable="true" kind="Persistent" fieldName="_identityUser" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="f303a611-f8db-413f-b5c8-cdb208927eb2" name="IdentityRole" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="a5909e12-978c-425a-a30a-9f60c1a8df39" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="b35b3e4b-015c-4797-9b83-7871698a6042" name="Name" label="Name : String" fieldName="_name" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="7b08827a-829b-4f08-928c-933a392f091c">
+          <NavigationalProperty Id="01b6aff9-23a8-43d4-9484-9fe20b7874af" name="IdentityUserInRoles" type="IList&lt;IdentityUserInRole&gt;" label="IdentityUserInRoles : IList&lt;IdentityUserInRole&gt;" nullable="true" kind="Persistent" fieldName="_identityUserInRoles" isDependent="true" isManaged="true" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="7217dc93-03e6-4daf-bcfc-5d54f9910b99" name="Zone" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" updateSchema="true" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="ea13aa32-9256-4bb5-b815-a4c3ea80fd5d" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="11b4f1c2-b9a6-4271-8985-f1394c1bdbdc" name="Name" label="Name : String" fieldName="_name" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="bb1982b3-5388-42a0-9f96-b97cf8558dcb">
+          <NavigationalProperty Id="64080e4d-6796-490a-b2a0-9254e1981c64" name="IdentityUsers" type="IList&lt;IdentityUser&gt;" label="IdentityUsers : IList&lt;IdentityUser&gt;" nullable="true" kind="Persistent" fieldName="_identityUsers" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="26885549-fe8d-4abc-a795-2905da777398" name="IdentityUserInRole" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="2a61dd93-2f29-4984-93e1-c22bda9f161f" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="9a1d95bb-0623-4968-b5f6-e746cb36c80f" name="UserId" type="Int32" label="UserId : Int32" fieldName="_userId" />
+      <Property Id="2419d3d6-7040-4b3f-bc37-2587e4cc887a" name="RoleId" type="Int32" label="RoleId : Int32" fieldName="_roleId" />
+      <AssociationTargets>
+        <Association Id="4aa71ba9-4d8c-4ef8-8f28-624cf5278f6e" SourceMultiplicity="ZeroOne" name="IdentityUserInRoleHasIdentityRole">
+          <DomainClassMoniker name="/EntitiesModel/IdentityRole" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="1b2fdeff-1215-49cc-8650-e8d7a6cd5fd8">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityRole/IdentityUserInRoles" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="e1836fae-5048-468f-9fa1-3c4d39e00764">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUserInRole/IdentityRole" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+        <Association Id="a9ab2f01-7c74-4f3d-8b14-2187eabaef1b" SourceMultiplicity="ZeroOne" name="IdentityUserInRoleHasIdentityUser">
+          <DomainClassMoniker name="/EntitiesModel/IdentityUser" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="fca6c0a3-ad69-4058-8736-e9d0640858aa">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUser/IdentityUserInRoles" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="72b60f6a-3ae1-47fe-b933-14c81ba66cf6">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUserInRole/IdentityUser" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="8bcb1f74-8f0e-470b-a9c6-f9202685d643">
+          <NavigationalProperty Id="def70df0-e1c1-4ad1-b6ed-8bf8a3359200" name="IdentityRole" type="IdentityRole" label="IdentityRole : IdentityRole" nullable="true" kind="Persistent" fieldName="_identityRole" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="fd3d76b0-0734-405c-a940-b3a23b0ae084">
+          <NavigationalProperty Id="bc20257a-4b3e-406f-808f-121974b2cf25" name="IdentityUser" type="IdentityUser" label="IdentityUser : IdentityUser" nullable="true" kind="Persistent" fieldName="_identityUser" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="8748d0bf-784c-4980-aa56-f67628038f83" name="TraiiningSessions" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="f97e6353-846d-466f-b410-8e4e3df8a292" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="7143db30-b505-43df-8973-f4e200652932" name="Name" label="Name : String" fieldName="_name" />
+      <Property Id="7ee5137e-b22d-43bb-886b-a868e4dc69da" name="StartDate" type="DateTime" label="StartDate : DateTime" fieldName="_startDate" />
+      <Property Id="516638a3-12e2-41c5-97d5-5156af44f878" name="EndDate" type="DateTime" label="EndDate : DateTime" fieldName="_endDate" />
+      <Property Id="a1a8dd32-70a2-4de0-a449-2d1aa390193e" name="DateCreated" type="DateTime" label="DateCreated : DateTime" fieldName="_dateCreated" />
+      <Property Id="d379c520-f17d-46e5-a7ab-f8cd464f9808" name="DaysAfterEndBeforeArchiving" type="Int32" label="DaysAfterEndBeforeArchiving : Int32" fieldName="_daysAfterEndBeforeArchiving" />
+      <Property Id="ecab3e5f-f5c9-404b-9242-804b1db06961" name="Description" label="Description : String" fieldName="_description" />
+      <Property Id="ce9cd0b5-ac18-48b0-a5f8-06586bf11e7c" name="MaximumNumberOfParticipants" type="Int32" label="MaximumNumberOfParticipants : Int32" fieldName="_maximumNumberOfParticipants" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="a7d5ec16-4963-4568-bf9c-42ff02f268c0">
+          <NavigationalProperty Id="9f6766b0-0535-49c8-aac0-4c0ac80d2b75" name="TrainingSessionFiles" type="IList&lt;TrainingSessionFiles&gt;" label="TrainingSessionFiles : IList&lt;TrainingSessionFiles&gt;" nullable="true" kind="Persistent" fieldName="_trainingSessionFiles" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="0dab5f0b-dc20-428a-9376-7aa17f9a2722">
+          <NavigationalProperty Id="73368bca-784a-42d2-8db3-66b2f15faa01" name="TraningSessionSubscriptions" type="IList&lt;TraningSessionSubscriptions&gt;" label="TraningSessionSubscriptions : IList&lt;TraningSessionSubscriptions&gt;" nullable="true" kind="Persistent" fieldName="_traningSessionSubscriptions" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="f0a2bae3-2677-4268-a87b-60c17fee4d38" name="TrainingSessionFiles" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="4504ae4e-142a-41ba-8d4d-ee13851ad929" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="c229f67e-9f04-42fd-8306-a45748e96271" name="TrainingSessionId" type="Int32" label="TrainingSessionId : Int32" fieldName="_trainingSessionId" />
+      <Property Id="cc385dc4-6ad5-4efd-8fc8-886027cef490" name="FileName" label="FileName : String" fieldName="_fileName" />
+      <Property Id="79cfa604-2c62-49af-abbc-af5aba294845" name="FilePath" label="FilePath : String" fieldName="_filePath" />
+      <Property Id="daef6282-e35e-405c-8662-0703c93e61b7" name="FileType" label="FileType : String" fieldName="_fileType" />
+      <Property Id="4ddacc9c-7e06-4526-ba25-3cc16d71ca98" name="FileSize" type="Int64" label="FileSize : Int64" fieldName="_fileSize" />
+      <AssociationTargets>
+        <Association Id="e968f4be-9ba2-49bf-b262-25e8ad9dbece" SourceMultiplicity="ZeroOne" name="TrainingSessionFilesHasTraiiningSessions">
+          <DomainClassMoniker name="/EntitiesModel/TraiiningSessions" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="0182eddd-897b-4f6c-9ad8-53fb7b38406f">
+              <NavigationalPropertyMoniker name="/EntitiesModel/TraiiningSessions/TrainingSessionFiles" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="4c106f16-32a7-4e5d-98a5-1aa555c4e651">
+              <NavigationalPropertyMoniker name="/EntitiesModel/TrainingSessionFiles/TraiiningSessions" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="23617038-f518-4a4f-8389-2ae4a9d824fe">
+          <NavigationalProperty Id="be76abc6-6456-4746-b88d-fd1a35f61930" name="TraiiningSessions" type="TraiiningSessions" label="TraiiningSessions : TraiiningSessions" nullable="true" kind="Persistent" fieldName="_traiiningSessions" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="74a03458-6f10-43ed-8571-90d8da5eb8d9" name="TraningSessionSubscriptions" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="2afc32f3-0b91-41fb-9b65-293bc279f6bd" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="20f18977-3022-454c-a851-edb983388bd0" name="UserId" type="Int32" label="UserId : Int32" fieldName="_userId" />
+      <Property Id="641e8f01-cebd-46f3-b120-227640754ec9" name="TraininSessionId" type="Int32" label="TraininSessionId : Int32" fieldName="_traininSessionId" />
+      <Property Id="83ee11f3-2eab-46c8-bbcc-4f1b0c24ccf5" name="StartDate" type="DateTime" label="StartDate : DateTime" fieldName="_startDate" />
+      <Property Id="d2b9bbc5-23b0-42af-ac48-53f5c99571d5" name="ExpiryDate" type="DateTime" label="ExpiryDate : DateTime" fieldName="_expiryDate" />
+      <AssociationTargets>
+        <Association Id="a39619e9-bd8b-43e1-8a1b-9d4390f8b41b" SourceMultiplicity="ZeroOne" name="TraningSessionSubscriptionsHasTraiiningSessions">
+          <DomainClassMoniker name="/EntitiesModel/TraiiningSessions" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="42b8e81e-8b8b-4016-873f-fab4a54467aa">
+              <NavigationalPropertyMoniker name="/EntitiesModel/TraiiningSessions/TraningSessionSubscriptions" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="e4b7c7d9-0efc-4975-81a1-285f0cf00af5">
+              <NavigationalPropertyMoniker name="/EntitiesModel/TraningSessionSubscriptions/TraiiningSessions" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="464e4f87-7a1a-4762-967f-babd5f241f24">
+          <NavigationalProperty Id="fe3d1377-32eb-46d5-a08e-24419a61bb61" name="TraiiningSessions" type="TraiiningSessions" label="TraiiningSessions : TraiiningSessions" nullable="true" kind="Persistent" fieldName="_traiiningSessions" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="2cfdfb89-76da-4758-a18e-dbffb5f3d025">
+      <domainContainer name="EntitiesModel" namespace="BLWTraining.Models" showPropertiesCompartment="true">
+        <entitySetProperty name="IdentityUsers" namespace="BLWTraining.Models" type="IdentityUser" label="IdentityUsers : IQueryable&lt;BLWTraining.Models.IdentityUser&gt;" />
+        <entitySetProperty name="IdentityUserClaims1" namespace="BLWTraining.Models" type="IdentityUserClaim" label="IdentityUserClaims1 : IQueryable&lt;BLWTraining.Models.IdentityUserClaim&gt;" />
+        <entitySetProperty name="IdentityUserLogins" namespace="BLWTraining.Models" type="IdentityUserLogin" label="IdentityUserLogins : IQueryable&lt;BLWTraining.Models.IdentityUserLogin&gt;" />
+        <entitySetProperty name="IdentityRoles" namespace="BLWTraining.Models" type="IdentityRole" label="IdentityRoles : IQueryable&lt;BLWTraining.Models.IdentityRole&gt;" />
+        <entitySetProperty name="Zones" namespace="BLWTraining.Models" type="Zone" label="Zones : IQueryable&lt;BLWTraining.Models.Zone&gt;" />
+        <entitySetProperty name="IdentityUserInRoles" namespace="BLWTraining.Models" type="IdentityUserInRole" label="IdentityUserInRoles : IQueryable&lt;BLWTraining.Models.IdentityUserInRole&gt;" />
+        <entitySetProperty name="TraiiningSessions" namespace="BLWTraining.Models" type="TraiiningSessions" label="TraiiningSessions : IQueryable&lt;BLWTraining.Models.TraiiningSessions&gt;" />
+        <entitySetProperty name="TrainingSessionFiles" namespace="BLWTraining.Models" type="TrainingSessionFiles" label="TrainingSessionFiles : IQueryable&lt;BLWTraining.Models.TrainingSessionFiles&gt;" />
+        <entitySetProperty name="TraningSessionSubscriptions" namespace="BLWTraining.Models" type="TraningSessionSubscriptions" label="TraningSessionSubscriptions : IQueryable&lt;BLWTraining.Models.TraningSessionSubscriptions&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>
