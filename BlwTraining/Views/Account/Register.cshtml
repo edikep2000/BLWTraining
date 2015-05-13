@@ -1,41 +1,119 @@
-﻿@model BlwTraining.Models.RegisterViewModel
+﻿@model BlwTraining.ViewModels.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+@Html.Partial("_headerPartial")
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins col-md-8">
+            <div class="ibox-content">
+                @Html.Partial("_validationSummary")
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.Label("firstName", "Full Name", new{@class="control-label"})
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.LastName, new{@class="form-control", placeholder = "Last Name"})
+                            </div>
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.FirstName, new{@class="form-control", placeholder = "First Name"})
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailAddress, new{@class="control-label"})
+                        @Html.TextBoxFor(m => m.EmailAddress, new{@class="form-control", placeholder ="Email Address"})
+                    </div>
+                
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new{@class="control=label"})
+                        @Html.PasswordFor(m => m.Password, new{@class="form-control", placeholder = "Password"})
+                    </div>
+                
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new{@class="control-label"})
+                        @Html.PasswordFor(m => m.ConfirmPassword, new{@class="form-control", placeholder = "Confirm Password"})
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "control-label" })
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Phone Number" })
+                            </div>
+                        </div>
+                  
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Gender, new { @class = "control-label" })
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.Awe().AjaxDropdownFor(m => m.Gender).Url(Url.Action("GetList","GenderAjaxList")).HtmlAttributes(new{@class="form-control"})
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Chapter, new { @class = "control-label" })
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.TextBoxFor(m => m.Chapter, new { @class = "form-control", placeholder = "Chapter" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Zone, new { @class = "control-label" })
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.Awe().AjaxDropdownFor(m => m.Zone).Url(Url.Action("GetList", "ZoneAjaxList")).HtmlAttributes(new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group" id="data_1">
+                        @Html.LabelFor(m => m.DateOfBirth, new{@class="font-normal"})
+                        <div class="input-group date col-md-5">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            @Html.TextBoxFor(m => m.DateOfBirth, new{@class="form-control"})
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-primary" type="submit"><strong>Create Account</strong></button>
+
+                    </div>
+                    
+
+                }
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
+</div>
+@section Styles {
+    @Styles.Render("~/plugins/dataPickerStyles")
+
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+@section scripts
+{
+    @Scripts.Render("~/plugins/dataPicker")
+
+    <script type="text/javascript">
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+    </script>
+
 }

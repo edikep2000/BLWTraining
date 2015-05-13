@@ -2,7 +2,8 @@
 <DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="EntitiesModel" namespace="BLWTraining.Models" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
   <orm:orm name="EntitiesModel" backend="mssql" default-schema="dbo" xmlns:orm="http://tempuri.org/ORM">
     <orm:namespace name="BLWTraining.Models" default="true">
-      <orm:class name="IdentityUser" use-default-mapping="true" uniqueId="f64f6e87-7ef2-4dba-ab78-3e560b712b8d">
+      <orm:class name="IdentityUser" uniqueId="f64f6e87-7ef2-4dba-ab78-3e560b712b8d">
+        <orm:table name="IdentityUser" />
         <orm:identity>
           <orm:key-generator name="autoinc">
             <orm:key-generator-member property-name="Id" />
@@ -13,10 +14,10 @@
           <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
         </orm:field>
         <orm:field name="_firstName" property="FirstName" uniqueId="0a282d96-151f-4bc5-9165-cb31e6ea540c" type="System.String">
-          <orm:column name="FirstName" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+          <orm:column name="FirstName" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_lastName" property="LastName" uniqueId="31930b0d-c902-4584-aceb-8fb4579a2455" type="System.String">
-          <orm:column name="LastName" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+          <orm:column name="LastName" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_dateOfBirth" property="DateOfBirth" uniqueId="a6ea2fd8-40df-4321-81d4-5bfe9541808f" type="System.DateTime">
           <orm:column name="DateOfBirth" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
@@ -25,10 +26,10 @@
           <orm:column name="Zone" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
         </orm:field>
         <orm:field name="_emailAddress" property="EmailAddress" uniqueId="194df45d-2436-49c4-a2d3-9de943a91883" type="System.String">
-          <orm:column name="EmailAddress" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+          <orm:column name="EmailAddress" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_phoneNumber" property="PhoneNumber" uniqueId="48ed5f3d-3704-44c6-b10e-61e2efec0562" type="System.String">
-          <orm:column name="PhoneNumber" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+          <orm:column name="PhoneNumber" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_emailConfirmed" property="EmailConfirmed" uniqueId="bb199f59-571b-473f-81af-1d8729dbc6c2" type="System.Boolean">
           <orm:column name="EmailConfirmed" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
@@ -37,7 +38,7 @@
           <orm:column name="PhoneNumberConfirmed" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
         </orm:field>
         <orm:field name="_passwordHash" property="PasswordHash" uniqueId="609b18bd-3f92-4e04-a0ae-eb6436821bfa" type="System.String">
-          <orm:column name="PasswordHash" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+          <orm:column name="PasswordHash" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_securityStamp" property="SecurityStamp" uniqueId="04890d4b-b48f-4a51-b6dd-834202473a0b" type="System.String">
           <orm:column name="SecurityStamp" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
@@ -46,7 +47,7 @@
           <orm:column name="TwoFactorEnabled" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
         </orm:field>
         <orm:field name="_lockOutEndDateUtc" property="LockOutEndDateUtc" uniqueId="1b0985e7-c8ab-4f48-af58-1372b3cc26c9" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
-          <orm:column name="LockOutEndDateUtc" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+          <orm:column name="LockOutEndDateUtc" sql-type="datetime" nullable="true" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
         </orm:field>
         <orm:field name="_lockOutEnabled" property="LockOutEnabled" uniqueId="b3c950f0-41e1-4454-821f-434a9450ca5d" type="System.Boolean">
           <orm:column name="LockOutEnabled" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
@@ -57,11 +58,14 @@
         <orm:field name="_providerId" property="ProviderId" uniqueId="ff5f77dd-f036-4b2d-b9c8-2c737913a1cd" type="System.String">
           <orm:column name="ProviderId" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         </orm:field>
-        <orm:field name="_lastLogInDate" property="LastLogInDate" uniqueId="709fb7e1-4c18-45bf-bc0c-96d57ff362ee" type="System.DateTime">
-          <orm:column name="LastLogInDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:field name="_lastLogInDate" property="LastLogInDate" uniqueId="709fb7e1-4c18-45bf-bc0c-96d57ff362ee" type="System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="LastLogInDate" sql-type="datetime" nullable="true" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
         </orm:field>
         <orm:field name="_chapter" property="Chapter" uniqueId="81e291ae-5275-4398-8cd2-d0328d55d489" type="System.String">
-          <orm:column name="Chapter" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+          <orm:column name="Chapter" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_gender" property="Gender" uniqueId="bd8b5aeb-2431-4c41-b82f-ee9e8b458a26" type="System.String">
+          <orm:column name="Gender" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         </orm:field>
         <orm:field name="_zone1" property="Zone1" behavior="readwrite" uniqueId="c53f5a71-f248-4b0a-ab2a-de805a85e395" type="BLWTraining.Models.Zone">
           <orm:reference uniqueId="4cf6b569-8550-44c4-bcbc-cddc36533848" association-name="IdentityUserHasZone">
@@ -77,6 +81,11 @@
         <orm:field name="_identityUserLogins" property="IdentityUserLogins" behavior="readwrite" uniqueId="0d83c14a-7e7d-40fe-86a1-5343a8890ca8" type="BLWTraining.Models.IdentityUserLogin">
           <orm:collection element-class="BLWTraining.Models.IdentityUserLogin" inverse-field="_identityUser" order-by="" uniqueId="60a7fdf9-1be1-4e7f-9d9e-0e7e043355da" />
         </orm:field>
+        <orm:index name="idx_IdentityUser_Zone">
+          <orm:columnMapping>
+            <orm:column name="Zone" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
       </orm:class>
       <orm:class name="IdentityUserClaim" use-default-mapping="true" uniqueId="e9f33891-24fc-4792-984b-6db7ed67fd84">
         <orm:identity>
@@ -286,6 +295,32 @@
         <orm:column name="LoginProvider" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
         <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
       </orm:table>
+      <orm:table name="IdentityUser">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="FirstName" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="LastName" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="DateOfBirth" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="EmailAddress" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="PhoneNumber" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="EmailConfirmed" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        <orm:column name="PhoneNumberConfirmed" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        <orm:column name="PasswordHash" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="SecurityStamp" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="TwoFactorEnabled" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        <orm:column name="LockOutEndDateUtc" sql-type="datetime" nullable="true" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="LockOutEnabled" sql-type="tinyint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.OneZero2BooleanConverter" ado-type="Bit" />
+        <orm:column name="AccessFailedCount" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        <orm:column name="ProviderId" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="LastLogInDate" sql-type="datetime" nullable="true" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="Chapter" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="Zone" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        <orm:column name="Gender" sql-type="varchar" nullable="false" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:index name="idx_IdentityUser_Zone">
+          <orm:columnMapping>
+            <orm:column name="Zone" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:table>
     </orm:schema>
     <orm:relational-naming-settings>
       <orm:source-strategy>Property</orm:source-strategy>
@@ -294,7 +329,7 @@
   </orm:orm>
   <ModelSettings xmlns="">
     <AppConfigConnectionPropertyName>BlwTraningConnection</AppConfigConnectionPropertyName>
-    <AppConfigConnectionString>Data Source=PETER;Initial Catalog=BlwTraning;Integrated Security=True</AppConfigConnectionString>
+    <AppConfigConnectionString>data source=PETER;initial catalog=BlwTraning;integrated security=True</AppConfigConnectionString>
     <NamingSettings>
       <ClassRules>
         <CaseMode>PascalCase</CaseMode>
@@ -319,6 +354,8 @@
     <SchemaUpdateSettings>
       <ExecuteScript>true</ExecuteScript>
       <DeploymentProject>BLWTraining.Models</DeploymentProject>
+      <UpdateDatabaseOperation>Migrate</UpdateDatabaseOperation>
+      <ShowAllTables>true</ShowAllTables>
     </SchemaUpdateSettings>
     <BackendConfigurationSettings>
       <BackendConfiguration>
@@ -345,8 +382,9 @@
       <Property Id="b3c950f0-41e1-4454-821f-434a9450ca5d" name="LockOutEnabled" type="Boolean" label="LockOutEnabled : Boolean" fieldName="_lockOutEnabled" />
       <Property Id="f79c86ec-dc89-4560-9059-3ba526342c3c" name="AccessFailedCount" type="Int32" label="AccessFailedCount : Int32" fieldName="_accessFailedCount" />
       <Property Id="ff5f77dd-f036-4b2d-b9c8-2c737913a1cd" name="ProviderId" label="ProviderId : String" fieldName="_providerId" />
-      <Property Id="709fb7e1-4c18-45bf-bc0c-96d57ff362ee" name="LastLogInDate" type="DateTime" label="LastLogInDate : DateTime" fieldName="_lastLogInDate" />
+      <Property Id="709fb7e1-4c18-45bf-bc0c-96d57ff362ee" name="LastLogInDate" type="DateTime" label="LastLogInDate : DateTime" nullable="true" fieldName="_lastLogInDate" />
       <Property Id="81e291ae-5275-4398-8cd2-d0328d55d489" name="Chapter" label="Chapter : String" fieldName="_chapter" />
+      <Property Id="bd8b5aeb-2431-4c41-b82f-ee9e8b458a26" name="Gender" label="Gender : String" fieldName="_gender" />
       <AssociationTargets>
         <Association Id="4cf6b569-8550-44c4-bcbc-cddc36533848" SourceMultiplicity="ZeroOne" name="IdentityUserHasZone">
           <DomainClassMoniker name="/EntitiesModel/Zone" />

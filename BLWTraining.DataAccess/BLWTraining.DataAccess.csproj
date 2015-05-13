@@ -52,6 +52,7 @@
     <Compile Include="Service\TrainingSessionStore.cs" />
     <Compile Include="Service\TrainingSessionSubscriptionStore.cs" />
     <Compile Include="Service\UserStore.cs" />
+    <Compile Include="Service\ZoneStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

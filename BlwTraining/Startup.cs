@@ -4,11 +4,11 @@ using System.Web;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using BlwTraining;
 using BlwTraining.App_Start;
 using BLWTraining.DataAccess.Service;
 using BLWTraining.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataProtection;
@@ -16,12 +16,12 @@ using Owin;
 using Telerik.OpenAccess;
 using IdentityRole = BLWTraining.Models.IdentityRole;
 
-[assembly: OwinStartupAttribute(typeof(BlwTraining.Startup))]
+[assembly: OwinStartupAttribute(typeof(Startup))]
 namespace BlwTraining
 {
     public partial class Startup
     {
-        internal static IDataProtectionProvider DataProtectionProvider { get; private set; }
+        internal static IDataProtectionProvider DataProtectionProvider { get; set; }
         public void Configuration(IAppBuilder app)
         {
             var builder = new ContainerBuilder();

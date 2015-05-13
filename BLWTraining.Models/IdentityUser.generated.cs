@@ -28,6 +28,7 @@ namespace BLWTraining.Models
 	{
 		private int _id;
 		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.Key()]
 		public virtual int Id
 		{
 			get
@@ -46,6 +47,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _firstName;
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual string FirstName
 		{
@@ -65,6 +67,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _lastName;
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual string LastName
 		{
@@ -84,6 +87,7 @@ namespace BLWTraining.Models
 		}
 		
 		private DateTime _dateOfBirth;
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual DateTime DateOfBirth
 		{
@@ -122,6 +126,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _emailAddress;
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual string EmailAddress
 		{
@@ -141,6 +146,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _phoneNumber;
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual string PhoneNumber
 		{
@@ -198,6 +204,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _passwordHash;
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual string PasswordHash
 		{
@@ -217,7 +224,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _securityStamp;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		public virtual string SecurityStamp
 		{
 			get
@@ -255,7 +262,7 @@ namespace BLWTraining.Models
 		}
 		
 		private DateTime? _lockOutEndDateUtc;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
 		public virtual DateTime? LockOutEndDateUtc
 		{
 			get
@@ -312,7 +319,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _providerId;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		public virtual string ProviderId
 		{
 			get
@@ -330,9 +337,9 @@ namespace BLWTraining.Models
 			}
 		}
 		
-		private DateTime _lastLogInDate;
-		[System.ComponentModel.DataAnnotations.Required()]
-		public virtual DateTime LastLogInDate
+		private DateTime? _lastLogInDate;
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
+		public virtual DateTime? LastLogInDate
 		{
 			get
 			{
@@ -350,6 +357,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _chapter;
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual string Chapter
 		{
@@ -364,6 +372,26 @@ namespace BLWTraining.Models
 					this.OnPropertyChanging("Chapter");
 					this._chapter = value;
 					this.OnPropertyChanged("Chapter");
+				}
+			}
+		}
+		
+		private string _gender;
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
+		[System.ComponentModel.DataAnnotations.Required()]
+		public virtual string Gender
+		{
+			get
+			{
+				return this._gender;
+			}
+			set
+			{
+				if(this._gender != value)
+				{
+					this.OnPropertyChanging("Gender");
+					this._gender = value;
+					this.OnPropertyChanged("Gender");
 				}
 			}
 		}
@@ -465,8 +493,9 @@ namespace BLWTraining.Models
 			this.LockOutEnabled = info.GetBoolean("LockOutEnabled");
 			this.AccessFailedCount = info.GetInt32("AccessFailedCount");
 			this.ProviderId = info.GetString("ProviderId");
-			this.LastLogInDate = (DateTime)info.GetValue("LastLogInDate", typeof(DateTime));
+			this.LastLogInDate = (DateTime?)info.GetValue("LastLogInDate", typeof(DateTime?));
 			this.Chapter = info.GetString("Chapter");
+			this.Gender = info.GetString("Gender");
 			CustomizeDeserializationProcess(info, context);
 		}
 		
@@ -488,8 +517,9 @@ namespace BLWTraining.Models
 			info.AddValue("LockOutEnabled", this.LockOutEnabled, typeof(bool));
 			info.AddValue("AccessFailedCount", this.AccessFailedCount, typeof(int));
 			info.AddValue("ProviderId", this.ProviderId, typeof(string));
-			info.AddValue("LastLogInDate", this.LastLogInDate, typeof(DateTime));
+			info.AddValue("LastLogInDate", this.LastLogInDate, typeof(DateTime?));
 			info.AddValue("Chapter", this.Chapter, typeof(string));
+			info.AddValue("Gender", this.Gender, typeof(string));
 			CustomizeSerializationProcess(info, context);
 		}
 		

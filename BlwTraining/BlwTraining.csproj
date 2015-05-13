@@ -189,13 +189,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListControllers\GenderAjaxListController.cs" />
+    <Compile Include="Controllers\ListControllers\ZoneAjaxListController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -795,6 +794,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ZoneAjaxList\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -807,6 +807,7 @@
     <Content Include="Views\Shared\_validationSummary.cshtml" />
     <Content Include="Views\Shared\_TopNavbar.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Account\RegisterConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLWTraining.DataAccess\BLWTraining.DataAccess.csproj">
@@ -816,6 +817,10 @@
     <ProjectReference Include="..\BLWTraining.Models\BLWTraining.Models.csproj">
       <Project>{C50145E6-A244-4F1F-B41F-90D1925B4A00}</Project>
       <Name>BLWTraining.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlwTraining.ViewModels\BlwTraining.ViewModels.csproj">
+      <Project>{639D28D2-8B8B-434D-804E-47730EF3DA87}</Project>
+      <Name>BlwTraining.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\BLWTraning.Common\BLWTraining.Common.csproj">
       <Project>{4FCFB31F-7806-4A80-9BFD-812C24E613E9}</Project>

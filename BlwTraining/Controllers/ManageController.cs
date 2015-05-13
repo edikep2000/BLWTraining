@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using BlwTraining.App_Start;
+using BlwTraining.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using BlwTraining.Models;
 
 namespace BlwTraining.Controllers
 {

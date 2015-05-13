@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLWTraining.DataAccess", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLWTraining.Models", "BLWTraining.Models\BLWTraining.Models.csproj", "{C50145E6-A244-4F1F-B41F-90D1925B4A00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlwTraining.ViewModels", "BlwTraining.ViewModels\BlwTraining.ViewModels.csproj", "{639D28D2-8B8B-434D-804E-47730EF3DA87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{639D28D2-8B8B-434D-804E-47730EF3DA87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639D28D2-8B8B-434D-804E-47730EF3DA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639D28D2-8B8B-434D-804E-47730EF3DA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639D28D2-8B8B-434D-804E-47730EF3DA87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

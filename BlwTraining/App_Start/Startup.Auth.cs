@@ -9,7 +9,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using BlwTraining.Models;
+
 
 namespace BlwTraining
 {

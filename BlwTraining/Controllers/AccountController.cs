@@ -7,10 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using BlwTraining.App_Start;
 using BLWTraining.Models;
+using BlwTraining.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using BlwTraining.Models;
+
 
 namespace BlwTraining.Controllers
 {
@@ -130,7 +131,7 @@ namespace BlwTraining.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = model.Email, EmailAddress = model.Email };
+                var user = new IdentityUser { UserName = model.EmailAddress, EmailAddress = model.EmailAddress };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -149,6 +150,12 @@ namespace BlwTraining.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult RegisterConfirmation()
+        {
+            return View();
         }
 
         //
