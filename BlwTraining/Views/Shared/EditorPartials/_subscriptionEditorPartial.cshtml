@@ -1,0 +1,14 @@
+﻿@model BlwTraining.ViewModels.TrainingSessionSubscriptionViewModel
+
+
+@Html.HiddenFor(m => m.Id)
+@Html.HiddenFor(m => m.TraniningSessionId)
+@Html.HiddenFor(m => m.StartDate)
+@Html.HiddenFor(m => m.EndDate)
+
+@Html.Partial("_validationSummary")
+
+<div class="form-group">
+    @Html.LabelFor(m => m.UserId, new{@class="control-label"})
+    @Html.Awe().LookupFor(M => M.UserId).GetItemUrl(Url.Action("GetItems","UserLookup")).SearchUrl(Url.Action("Search","UserLookup")).CustomSearch(true).Fullscreen(true)
+</div>

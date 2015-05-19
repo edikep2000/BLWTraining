@@ -75,6 +75,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.OpenAccess.35.Extensions, Version=2015.1.225.1, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddPhoneNumberViewModel.cs" />
@@ -93,8 +94,16 @@
     <Compile Include="ResetPasswordViewModel.cs" />
     <Compile Include="SendCodeViewModel.cs" />
     <Compile Include="SetPasswordViewModel.cs" />
+    <Compile Include="TrainingSessionFileListModel.cs" />
+    <Compile Include="TrainingSessionFileViewModel.cs" />
+    <Compile Include="TrainingSessionListModel.cs" />
+    <Compile Include="TrainingSessionLiveEventViewModel.cs" />
+    <Compile Include="TrainingSessionSubscriptionViewModel.cs" />
+    <Compile Include="TrainingSessionViewModels.cs" />
+    <Compile Include="UserListModel.cs" />
     <Compile Include="VerifyCodeViewModel.cs" />
     <Compile Include="VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ZoneViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -441,6 +441,15 @@ namespace BLWTraining.Models
 			}
 		}
 		
+		private IList<TraningSessionSubscriptions> _traningSessionSubscriptions = new List<TraningSessionSubscriptions>();
+		public virtual IList<TraningSessionSubscriptions> TraningSessionSubscriptions
+		{
+			get
+			{
+				return this._traningSessionSubscriptions;
+			}
+		}
+		
 		#region INotifyPropertyChanging members
 		
 		public event PropertyChangingEventHandler PropertyChanging;

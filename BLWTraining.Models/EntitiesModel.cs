@@ -122,6 +122,14 @@ namespace BLWTraining.Models
 			}
 		}
 		
+		public IQueryable<TrainingSessionLiveEvents> TrainingSessionLiveEvents 
+		{
+			get
+			{
+				return this.GetAll<TrainingSessionLiveEvents>();
+			}
+		}
+		
 		public static BackendConfiguration GetBackendConfiguration()
 		{
 			BackendConfiguration backend = new BackendConfiguration();
@@ -176,6 +184,10 @@ namespace BLWTraining.Models
 			get;
 		}
 		IQueryable<TraningSessionSubscriptions> TraningSessionSubscriptions
+		{
+			get;
+		}
+		IQueryable<TrainingSessionLiveEvents> TrainingSessionLiveEvents
 		{
 			get;
 		}

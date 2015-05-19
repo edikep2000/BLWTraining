@@ -28,6 +28,7 @@ namespace BLWTraining.Models
 	{
 		private int _id;
 		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.Key()]
 		public virtual int Id
 		{
 			get
@@ -46,7 +47,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _name;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		public virtual string Name
 		{
 			get
@@ -65,6 +66,7 @@ namespace BLWTraining.Models
 		}
 		
 		private DateTime _startDate;
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual DateTime StartDate
 		{
@@ -84,6 +86,7 @@ namespace BLWTraining.Models
 		}
 		
 		private DateTime _endDate;
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual DateTime EndDate
 		{
@@ -103,6 +106,7 @@ namespace BLWTraining.Models
 		}
 		
 		private DateTime _dateCreated;
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual DateTime DateCreated
 		{
@@ -141,7 +145,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _description;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		public virtual string Description
 		{
 			get
@@ -193,6 +197,15 @@ namespace BLWTraining.Models
 			get
 			{
 				return this._traningSessionSubscriptions;
+			}
+		}
+		
+		private IList<TrainingSessionLiveEvents> _trainingSessionLiveEvents = new List<TrainingSessionLiveEvents>();
+		public virtual IList<TrainingSessionLiveEvents> TrainingSessionLiveEvents
+		{
+			get
+			{
+				return this._trainingSessionLiveEvents;
 			}
 		}
 		

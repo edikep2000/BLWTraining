@@ -81,6 +81,9 @@
         <orm:field name="_identityUserLogins" property="IdentityUserLogins" behavior="readwrite" uniqueId="0d83c14a-7e7d-40fe-86a1-5343a8890ca8" type="BLWTraining.Models.IdentityUserLogin">
           <orm:collection element-class="BLWTraining.Models.IdentityUserLogin" inverse-field="_identityUser" order-by="" uniqueId="60a7fdf9-1be1-4e7f-9d9e-0e7e043355da" />
         </orm:field>
+        <orm:field name="_traningSessionSubscriptions" property="TraningSessionSubscriptions" behavior="readwrite" uniqueId="bd7aa34e-f443-4d9b-8fa4-1d0d4c386714" type="BLWTraining.Models.TraningSessionSubscriptions" dependent="true">
+          <orm:collection element-class="BLWTraining.Models.TraningSessionSubscriptions" inverse-field="_identityUser" managed="true" order-by="" uniqueId="096b61c1-ee47-46e9-beee-dccf99bda295" />
+        </orm:field>
         <orm:index name="idx_IdentityUser_Zone">
           <orm:columnMapping>
             <orm:column name="Zone" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
@@ -111,6 +114,11 @@
             <orm:sharedfield name="_userId" target-class="BLWTraining.Models.IdentityUser" target-field="_id" />
           </orm:reference>
         </orm:field>
+        <orm:index name="idx_IdentityUserClaim_UserId">
+          <orm:columnMapping>
+            <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
       </orm:class>
       <orm:class name="IdentityUserLogin" uniqueId="1f251aab-dca6-4ffa-89c7-44b9dfb6dd69">
         <orm:table name="IdentityUserLogin" />
@@ -190,8 +198,19 @@
             <orm:sharedfield name="_userId" target-class="BLWTraining.Models.IdentityUser" target-field="_id" />
           </orm:reference>
         </orm:field>
+        <orm:index name="idx_IdentityUserInRole_RoleId">
+          <orm:columnMapping>
+            <orm:column name="RoleId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+        <orm:index name="idx_IdentityUserInRole_UserId">
+          <orm:columnMapping>
+            <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
       </orm:class>
-      <orm:class name="TraiiningSessions" use-default-mapping="true" uniqueId="8748d0bf-784c-4980-aa56-f67628038f83">
+      <orm:class name="TraiiningSessions" uniqueId="8748d0bf-784c-4980-aa56-f67628038f83">
+        <orm:table name="TraiiningSessions" />
         <orm:identity>
           <orm:key-generator name="autoinc">
             <orm:key-generator-member property-name="Id" />
@@ -228,8 +247,12 @@
         <orm:field name="_traningSessionSubscriptions" property="TraningSessionSubscriptions" behavior="readwrite" uniqueId="73368bca-784a-42d2-8db3-66b2f15faa01" type="BLWTraining.Models.TraningSessionSubscriptions">
           <orm:collection element-class="BLWTraining.Models.TraningSessionSubscriptions" inverse-field="_traiiningSessions" order-by="" uniqueId="a39619e9-bd8b-43e1-8a1b-9d4390f8b41b" />
         </orm:field>
+        <orm:field name="_trainingSessionLiveEvents" property="TrainingSessionLiveEvents" behavior="readwrite" uniqueId="a29a24cf-14bb-4e0c-8aa9-0f3a1fd8b3bd" type="BLWTraining.Models.TrainingSessionLiveEvents">
+          <orm:collection element-class="BLWTraining.Models.TrainingSessionLiveEvents" inverse-field="_traiiningSessions" order-by="" uniqueId="b9d42a39-8d23-4360-91f1-dbac76cf060d" />
+        </orm:field>
       </orm:class>
-      <orm:class name="TrainingSessionFiles" use-default-mapping="true" uniqueId="f0a2bae3-2677-4268-a87b-60c17fee4d38">
+      <orm:class name="TrainingSessionFiles" uniqueId="f0a2bae3-2677-4268-a87b-60c17fee4d38">
+        <orm:table name="TrainingSessionFiles" />
         <orm:identity>
           <orm:key-generator name="autoinc">
             <orm:key-generator-member property-name="Id" />
@@ -254,13 +277,17 @@
         <orm:field name="_fileSize" property="FileSize" uniqueId="4ddacc9c-7e06-4526-ba25-3cc16d71ca98" type="System.Int64">
           <orm:column name="FileSize" sql-type="bigint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.BigIntConverter" ado-type="Int64" />
         </orm:field>
+        <orm:field name="_isDownloadable" property="IsDownloadable" uniqueId="f4deae66-20a4-4fcb-9ea6-ba0f30b2724d" type="System.Boolean">
+          <orm:column name="IsDownloadable" sql-type="bit" nullable="false" length="0" scale="0" ado-type="" />
+        </orm:field>
         <orm:field name="_traiiningSessions" property="TraiiningSessions" behavior="readwrite" uniqueId="be76abc6-6456-4746-b88d-fd1a35f61930" type="BLWTraining.Models.TraiiningSessions">
           <orm:reference uniqueId="e968f4be-9ba2-49bf-b262-25e8ad9dbece" association-name="TrainingSessionFilesHasTraiiningSessions">
             <orm:sharedfield name="_trainingSessionId" target-class="BLWTraining.Models.TraiiningSessions" target-field="_id" />
           </orm:reference>
         </orm:field>
       </orm:class>
-      <orm:class name="TraningSessionSubscriptions" use-default-mapping="true" uniqueId="74a03458-6f10-43ed-8571-90d8da5eb8d9">
+      <orm:class name="TraningSessionSubscriptions" uniqueId="74a03458-6f10-43ed-8571-90d8da5eb8d9">
+        <orm:table name="TraningSessionSubscriptions" />
         <orm:identity>
           <orm:key-generator name="autoinc">
             <orm:key-generator-member property-name="Id" />
@@ -287,6 +314,50 @@
             <orm:sharedfield name="_traininSessionId" target-class="BLWTraining.Models.TraiiningSessions" target-field="_id" />
           </orm:reference>
         </orm:field>
+        <orm:field name="_identityUser" property="IdentityUser" behavior="readwrite" uniqueId="e1c4cf5a-f9a3-4832-ab4b-406e286d7ac5" type="BLWTraining.Models.IdentityUser">
+          <orm:reference uniqueId="096b61c1-ee47-46e9-beee-dccf99bda295" association-name="TraningSessionSubscriptionsHasIdentityUser">
+            <orm:sharedfield name="_userId" target-class="BLWTraining.Models.IdentityUser" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="idx_TrnngSssnSbscrptns_TrnnSss">
+          <orm:columnMapping>
+            <orm:column name="TraininSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:class>
+      <orm:class name="TrainingSessionLiveEvents" uniqueId="cbc60357-7568-4acd-a1cd-ee6a17900ef2">
+        <orm:table name="TrainingSessionLiveEvents" />
+        <orm:identity>
+          <orm:key-generator name="autoinc">
+            <orm:key-generator-member property-name="Id" />
+          </orm:key-generator>
+          <orm:single-field field-name="_id" />
+        </orm:identity>
+        <orm:field name="_id" property="Id" uniqueId="f7681060-7035-422e-b583-23af2a3ee358" type="System.Int32">
+          <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_startDate" property="StartDate" uniqueId="b6f8f3ae-e51c-4a15-acd0-bd86c3380a20" type="System.DateTime">
+          <orm:column name="StartDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        </orm:field>
+        <orm:field name="_fMSUrl" property="FMSUrl" uniqueId="ab99a7ec-daf1-47e4-805f-df7e87e43668" type="System.String">
+          <orm:column name="FMSUrl" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_trainingSessionId" property="TrainingSessionId" uniqueId="9bd99484-820c-4712-81cf-970133583ba9" type="System.Int32">
+          <orm:column name="TrainingSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_eventName" property="EventName" uniqueId="e66404cb-7c4d-491a-b830-87260941caad" type="System.String">
+          <orm:column name="EventName" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        </orm:field>
+        <orm:field name="_traiiningSessions" property="TraiiningSessions" behavior="readwrite" uniqueId="bf0a82ef-7f84-444a-8cac-0b6d1a492d93" type="BLWTraining.Models.TraiiningSessions">
+          <orm:reference uniqueId="b9d42a39-8d23-4360-91f1-dbac76cf060d" association-name="TrainingSessionLiveEventsHasTraiiningSessions">
+            <orm:sharedfield name="_trainingSessionId" target-class="BLWTraining.Models.TraiiningSessions" target-field="_id" />
+          </orm:reference>
+        </orm:field>
+        <orm:index name="idx_TrnngSssnLvEvnts_TrnngSssn">
+          <orm:columnMapping>
+            <orm:column name="TrainingSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
       </orm:class>
     </orm:namespace>
     <orm:schema schema="">
@@ -318,6 +389,49 @@
         <orm:index name="idx_IdentityUser_Zone">
           <orm:columnMapping>
             <orm:column name="Zone" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:table>
+      <orm:table name="TraiiningSessions">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="nme" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="StartDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="EndDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="DateCreated" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="DaysAfterEndBeforeArchiving" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        <orm:column name="Description" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="MaximumNumberOfParticipants" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+      </orm:table>
+      <orm:table name="TrainingSessionFiles">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="flename" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="FilePath" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="FileType" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="FileSize" sql-type="bigint" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.BigIntConverter" ado-type="Int64" />
+        <orm:column name="TrainingSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        <orm:column name="IsDownloadable" sql-type="bit" nullable="false" length="0" scale="0" ado-type="" />
+      </orm:table>
+      <orm:table name="TraningSessionSubscriptions">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="UserId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        <orm:column name="StartDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="ExpiryDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="TraininSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        <orm:index name="idx_TrnngSssnSbscrptns_TrnnSss">
+          <orm:columnMapping>
+            <orm:column name="TraininSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+          </orm:columnMapping>
+        </orm:index>
+      </orm:table>
+      <orm:table name="TrainingSessionLiveEvents">
+        <orm:column name="Id" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" converter="OpenAccessRuntime.Data.IntConverter" backend-calculated="true" ado-type="Int32" />
+        <orm:column name="StartDate" sql-type="datetime" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.MssqlMinDateConverter" ado-type="DateTime" />
+        <orm:column name="FMSUrl" sql-type="varchar" nullable="true" length="255" scale="0" converter="OpenAccessRuntime.Data.VariableLengthAnsiStringConverter" ado-type="StringVariableLength" />
+        <orm:column name="TrainingSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
+        <orm:column name="EventName" sql-type="varchar" nullable="false" length="255" scale="0" ado-type="" />
+        <orm:index name="idx_TrnngSssnLvEvnts_TrnngSssn">
+          <orm:columnMapping>
+            <orm:column name="TrainingSessionId" sql-type="int" nullable="false" length="0" scale="0" converter="OpenAccessRuntime.Data.IntConverter" ado-type="Int32" />
           </orm:columnMapping>
         </orm:index>
       </orm:table>
@@ -412,6 +526,9 @@
         </classHasNavigationalProperties>
         <classHasNavigationalProperties Id="9d79a6bb-a27f-46e0-95ef-6c73a4ce81dc">
           <NavigationalProperty Id="0d83c14a-7e7d-40fe-86a1-5343a8890ca8" name="IdentityUserLogins" type="IList&lt;IdentityUserLogin&gt;" label="IdentityUserLogins : IList&lt;IdentityUserLogin&gt;" nullable="true" kind="Persistent" fieldName="_identityUserLogins" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="b6fedd6c-ae57-42f0-8f7d-ea556e334c12">
+          <NavigationalProperty Id="bd7aa34e-f443-4d9b-8fa4-1d0d4c386714" name="TraningSessionSubscriptions" type="IList&lt;TraningSessionSubscriptions&gt;" label="TraningSessionSubscriptions : IList&lt;TraningSessionSubscriptions&gt;" nullable="true" kind="Persistent" fieldName="_traningSessionSubscriptions" isDependent="true" isManaged="true" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
@@ -541,6 +658,9 @@
         <classHasNavigationalProperties Id="0dab5f0b-dc20-428a-9376-7aa17f9a2722">
           <NavigationalProperty Id="73368bca-784a-42d2-8db3-66b2f15faa01" name="TraningSessionSubscriptions" type="IList&lt;TraningSessionSubscriptions&gt;" label="TraningSessionSubscriptions : IList&lt;TraningSessionSubscriptions&gt;" nullable="true" kind="Persistent" fieldName="_traningSessionSubscriptions" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="19631095-d3a8-4738-b29b-4101f0fc36f1">
+          <NavigationalProperty Id="a29a24cf-14bb-4e0c-8aa9-0f3a1fd8b3bd" name="TrainingSessionLiveEvents" type="IList&lt;TrainingSessionLiveEvents&gt;" label="TrainingSessionLiveEvents : IList&lt;TrainingSessionLiveEvents&gt;" nullable="true" kind="Persistent" fieldName="_trainingSessionLiveEvents" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
     <DomainClass Id="f0a2bae3-2677-4268-a87b-60c17fee4d38" name="TrainingSessionFiles" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
@@ -550,6 +670,7 @@
       <Property Id="79cfa604-2c62-49af-abbc-af5aba294845" name="FilePath" label="FilePath : String" fieldName="_filePath" />
       <Property Id="daef6282-e35e-405c-8662-0703c93e61b7" name="FileType" label="FileType : String" fieldName="_fileType" />
       <Property Id="4ddacc9c-7e06-4526-ba25-3cc16d71ca98" name="FileSize" type="Int64" label="FileSize : Int64" fieldName="_fileSize" />
+      <Property Id="f4deae66-20a4-4fcb-9ea6-ba0f30b2724d" name="IsDownloadable" type="Boolean" label="IsDownloadable : Boolean" fieldName="_isDownloadable" />
       <AssociationTargets>
         <Association Id="e968f4be-9ba2-49bf-b262-25e8ad9dbece" SourceMultiplicity="ZeroOne" name="TrainingSessionFilesHasTraiiningSessions">
           <DomainClassMoniker name="/EntitiesModel/TraiiningSessions" />
@@ -591,10 +712,53 @@
             </associationDefinesSourceProperty>
           </sourceNavigationalProperty>
         </Association>
+        <Association Id="096b61c1-ee47-46e9-beee-dccf99bda295" SourceMultiplicity="ZeroOne" name="TraningSessionSubscriptionsHasIdentityUser">
+          <DomainClassMoniker name="/EntitiesModel/IdentityUser" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="f2e6b41a-ef38-4ede-b9e4-58f8eb381ab8">
+              <NavigationalPropertyMoniker name="/EntitiesModel/IdentityUser/TraningSessionSubscriptions" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="f8fc901c-0076-4dd8-90ef-66a3c617ae45">
+              <NavigationalPropertyMoniker name="/EntitiesModel/TraningSessionSubscriptions/IdentityUser" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
       </AssociationTargets>
       <navigationalProperties>
         <classHasNavigationalProperties Id="464e4f87-7a1a-4762-967f-babd5f241f24">
           <NavigationalProperty Id="fe3d1377-32eb-46d5-a08e-24419a61bb61" name="TraiiningSessions" type="TraiiningSessions" label="TraiiningSessions : TraiiningSessions" nullable="true" kind="Persistent" fieldName="_traiiningSessions" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="d66610d6-a9a9-4ed9-81f9-d9c746d43af2">
+          <NavigationalProperty Id="e1c4cf5a-f9a3-4832-ab4b-406e286d7ac5" name="IdentityUser" type="IdentityUser" label="IdentityUser : IdentityUser" nullable="true" kind="Persistent" fieldName="_identityUser" isDependent="false" isManaged="true" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="cbc60357-7568-4acd-a1cd-ee6a17900ef2" name="TrainingSessionLiveEvents" namespace="BLWTraining.Models" showPropertiesCompartment="true" identityMechanism="DatabaseServerCalculated" showNavigationCompartment="true" showImplementationCompartment="true" identityMechanismMember="Id">
+      <Property Id="f7681060-7035-422e-b583-23af2a3ee358" name="Id" type="System.Int32" label="Id : System.Int32" identity="true" fieldName="_id" />
+      <Property Id="b6f8f3ae-e51c-4a15-acd0-bd86c3380a20" name="StartDate" type="DateTime" label="StartDate : DateTime" fieldName="_startDate" />
+      <Property Id="ab99a7ec-daf1-47e4-805f-df7e87e43668" name="FMSUrl" label="FMSUrl : String" fieldName="_fMSUrl" />
+      <Property Id="9bd99484-820c-4712-81cf-970133583ba9" name="TrainingSessionId" type="Int32" label="TrainingSessionId : Int32" fieldName="_trainingSessionId" />
+      <Property Id="e66404cb-7c4d-491a-b830-87260941caad" name="EventName" label="EventName : String" fieldName="_eventName" />
+      <AssociationTargets>
+        <Association Id="b9d42a39-8d23-4360-91f1-dbac76cf060d" SourceMultiplicity="ZeroOne" name="TrainingSessionLiveEventsHasTraiiningSessions">
+          <DomainClassMoniker name="/EntitiesModel/TraiiningSessions" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="47d4d51a-34f2-4258-8650-4d0238768f1b">
+              <NavigationalPropertyMoniker name="/EntitiesModel/TraiiningSessions/TrainingSessionLiveEvents" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="7a723e55-bd8e-4c83-bfda-49ef5a39d608">
+              <NavigationalPropertyMoniker name="/EntitiesModel/TrainingSessionLiveEvents/TraiiningSessions" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="12fd58b6-90fd-463f-8fe0-99d249b463da">
+          <NavigationalProperty Id="bf0a82ef-7f84-444a-8cac-0b6d1a492d93" name="TraiiningSessions" type="TraiiningSessions" label="TraiiningSessions : TraiiningSessions" nullable="true" kind="Persistent" fieldName="_traiiningSessions" isDependent="false" isManaged="false" />
         </classHasNavigationalProperties>
       </navigationalProperties>
     </DomainClass>
@@ -611,6 +775,7 @@
         <entitySetProperty name="TraiiningSessions" namespace="BLWTraining.Models" type="TraiiningSessions" label="TraiiningSessions : IQueryable&lt;BLWTraining.Models.TraiiningSessions&gt;" />
         <entitySetProperty name="TrainingSessionFiles" namespace="BLWTraining.Models" type="TrainingSessionFiles" label="TrainingSessionFiles : IQueryable&lt;BLWTraining.Models.TrainingSessionFiles&gt;" />
         <entitySetProperty name="TraningSessionSubscriptions" namespace="BLWTraining.Models" type="TraningSessionSubscriptions" label="TraningSessionSubscriptions : IQueryable&lt;BLWTraining.Models.TraningSessionSubscriptions&gt;" />
+        <entitySetProperty name="TrainingSessionLiveEvents" namespace="BLWTraining.Models" type="TrainingSessionLiveEvents" label="TrainingSessionLiveEvents : IQueryable&lt;BLWTraining.Models.TrainingSessionLiveEvents&gt;" />
       </domainContainer>
     </domainModelHasDomainContext>
   </domainContext>

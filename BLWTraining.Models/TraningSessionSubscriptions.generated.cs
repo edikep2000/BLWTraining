@@ -28,6 +28,7 @@ namespace BLWTraining.Models
 	{
 		private int _id;
 		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.Key()]
 		public virtual int Id
 		{
 			get
@@ -84,6 +85,7 @@ namespace BLWTraining.Models
 		}
 		
 		private DateTime _startDate;
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual DateTime StartDate
 		{
@@ -103,6 +105,7 @@ namespace BLWTraining.Models
 		}
 		
 		private DateTime _expiryDate;
+		[System.ComponentModel.DataAnnotations.DataType(System.ComponentModel.DataAnnotations.DataType.DateTime)]
 		[System.ComponentModel.DataAnnotations.Required()]
 		public virtual DateTime ExpiryDate
 		{
@@ -135,6 +138,24 @@ namespace BLWTraining.Models
 					this.OnPropertyChanging("TraiiningSessions");
 					this._traiiningSessions = value;
 					this.OnPropertyChanged("TraiiningSessions");
+				}
+			}
+		}
+		
+		private IdentityUser _identityUser;
+		public virtual IdentityUser IdentityUser
+		{
+			get
+			{
+				return this._identityUser;
+			}
+			set
+			{
+				if(this._identityUser != value)
+				{
+					this.OnPropertyChanging("IdentityUser");
+					this._identityUser = value;
+					this.OnPropertyChanged("IdentityUser");
 				}
 			}
 		}

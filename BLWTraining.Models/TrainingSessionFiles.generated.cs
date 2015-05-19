@@ -28,6 +28,7 @@ namespace BLWTraining.Models
 	{
 		private int _id;
 		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.Key()]
 		public virtual int Id
 		{
 			get
@@ -65,7 +66,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _fileName;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		public virtual string FileName
 		{
 			get
@@ -84,7 +85,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _filePath;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		public virtual string FilePath
 		{
 			get
@@ -103,7 +104,7 @@ namespace BLWTraining.Models
 		}
 		
 		private string _fileType;
-		[System.ComponentModel.DataAnnotations.Required()]
+		[System.ComponentModel.DataAnnotations.StringLength(255)]
 		public virtual string FileType
 		{
 			get
@@ -136,6 +137,25 @@ namespace BLWTraining.Models
 					this.OnPropertyChanging("FileSize");
 					this._fileSize = value;
 					this.OnPropertyChanged("FileSize");
+				}
+			}
+		}
+		
+		private bool _isDownloadable;
+		[System.ComponentModel.DataAnnotations.Required()]
+		public virtual bool IsDownloadable
+		{
+			get
+			{
+				return this._isDownloadable;
+			}
+			set
+			{
+				if(this._isDownloadable != value)
+				{
+					this.OnPropertyChanging("IsDownloadable");
+					this._isDownloadable = value;
+					this.OnPropertyChanged("IsDownloadable");
 				}
 			}
 		}
@@ -200,6 +220,7 @@ namespace BLWTraining.Models
 			this.FilePath = info.GetString("FilePath");
 			this.FileType = info.GetString("FileType");
 			this.FileSize = info.GetInt64("FileSize");
+			this.IsDownloadable = info.GetBoolean("IsDownloadable");
 			CustomizeDeserializationProcess(info, context);
 		}
 		
@@ -211,6 +232,7 @@ namespace BLWTraining.Models
 			info.AddValue("FilePath", this.FilePath, typeof(string));
 			info.AddValue("FileType", this.FileType, typeof(string));
 			info.AddValue("FileSize", this.FileSize, typeof(long));
+			info.AddValue("IsDownloadable", this.IsDownloadable, typeof(bool));
 			CustomizeSerializationProcess(info, context);
 		}
 		
